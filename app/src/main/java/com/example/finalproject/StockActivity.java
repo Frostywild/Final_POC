@@ -27,39 +27,12 @@ public class StockActivity extends AppCompatActivity {
 
     ListView listView;
     List list;
-    public static JSONObject savedResponse;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock);
-
-        /*if (queue == null) {
-            queue = Volley.newRequestQueue(this);
-        }
-        String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=GME&apikey=1JLPD9J3SUI1HMX9";
-
-        System.out.print("Using url: " + url);
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println(response.toString());
-                        savedResponse = response;
-                        //Intent intent = new Intent(context, StockActivity.class);
-                        //startActivity(intent);
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        System.out.println(" We have a Problem");
-                    }
-
-                });
-        queue.add(jsonObjectRequest);*/
 
         JSONObject tempInfo = MainActivity.savedResponse;
 
@@ -79,7 +52,9 @@ public class StockActivity extends AppCompatActivity {
         if(stockInfo!=null){
             try {
                 list.add(stockInfo.getString("01. symbol"));
+                System.out.println(stockInfo.getString("01. symbol"));
                 list.add(stockInfo.getString("02. open"));
+                System.out.println(stockInfo.getString("02. open"));
             } catch (JSONException e) {
                 System.out.println(" We have a problem with Weather Data");
                 e.printStackTrace();
