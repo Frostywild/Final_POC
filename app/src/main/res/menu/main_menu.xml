@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/common_google_signin_btn_icon_dark_normal"/>
+
+        <item
+            android:id="@+id/nav_stock"
+            android:title="Stocks"
+            android:icon="@drawable/common_google_signin_btn_icon_dark_normal"/>
+
+        <item
+            android:id="@+id/nav_login"
+            android:title="Login Zone"
+            android:icon="@drawable/common_google_signin_btn_icon_dark_normal"/>
+    </group>
+
+
+
+</menu>
