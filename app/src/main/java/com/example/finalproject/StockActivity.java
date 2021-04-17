@@ -2,6 +2,7 @@ package com.example.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -45,26 +46,27 @@ public class StockActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        listView = (ListView) findViewById(R.id.list_view);
+        listView = (ListView)findViewById(R.id.list_view);
 
         list = new ArrayList<String>();
 
         if(stockInfo!=null){
             try {
                 list.add(stockInfo.getString("01. symbol"));
-                System.out.println(stockInfo.getString("01. symbol"));
+                Log.d("list", list.toString());
                 list.add(stockInfo.getString("02. open"));
                 System.out.println(stockInfo.getString("02. open"));
             } catch (JSONException e) {
                 System.out.println(" We have a problem with Weather Data");
                 e.printStackTrace();
             }
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1);
-
-            listView.setAdapter(arrayAdapter);
 
 
         }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1,list);
+
+        listView.setAdapter(arrayAdapter);
 
 
 
