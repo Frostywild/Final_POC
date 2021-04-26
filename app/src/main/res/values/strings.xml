@@ -4,5 +4,6 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="navi">Close</string>
+    <string name="api_key">1JLPD9J3SUI1HMX9</string>
 
 </resources>

@@ -1,7 +1,9 @@
-package com.example.finalproject;
+package com.example.Z23354937;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +32,10 @@ public class LogInActivity extends AppCompatActivity {
 
     Button verify;
     private FirebaseAuth mAuth;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onStart() {
@@ -82,6 +89,7 @@ public class LogInActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
+
             } catch (ApiException e) {
 
                 Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT);
@@ -109,5 +117,12 @@ public class LogInActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public void returnToMainMenu(View view){
+        Intent intent;
+
+        intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }
