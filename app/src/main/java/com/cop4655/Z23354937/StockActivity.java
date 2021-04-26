@@ -1,4 +1,4 @@
-package com.example.Z23354937;
+package com.cop4655.Z23354937;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,8 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -106,7 +103,7 @@ public class StockActivity extends AppCompatActivity {
         String url= "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+Symbol+"&apikey=1JLPD9J3SUI1HMX9";
         System.out.print("Using url: ");
 
-        //System.out.print("Using url: " + url);
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
                     @Override
@@ -148,6 +145,7 @@ public class StockActivity extends AppCompatActivity {
         }
 
 
+        //adds the stock to the list
         if (stockInfo != null) {
             try {
                 list.add(stockInfo.getString("01. symbol") +"   "+ stockInfo.getString("02. open")+" "+Favorite);
@@ -198,13 +196,9 @@ public class StockActivity extends AppCompatActivity {
                         stockListArray.add(tempValue);
                         System.out.println("Is not favorite");
                     }
-                    //System.out.println()
-                    //System.out.println("The Value is "+tempValue);
 
                 }
                 setDatabaseInformation();
-                //getStockInfo();
-                //System.out.println("Can we get here");
             }
 
             @Override
@@ -213,33 +207,6 @@ public class StockActivity extends AppCompatActivity {
                 System.out.println("Failed to read value.");
             }
         });
-        ChildEventListener childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
     }
 
 
@@ -263,6 +230,7 @@ public class StockActivity extends AppCompatActivity {
         //listView.setAdapter(arrayAdapter);
     }
 
+    //deletes the chosen stock from the database
     public void deleteSelection(){
         System.out.println("Deleted");
 
@@ -290,6 +258,7 @@ public class StockActivity extends AppCompatActivity {
         });
     }
 
+    //Toggles the Favorite value of the chosen stock
     public void favoriteSelection(){
         System.out.println("Favorited");
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();

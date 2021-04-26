@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.Z23354937">
+    package="com.cop4655.Z23354937">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,12 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-        <activity android:name="com.example.Z23354937.ResultActivity"></activity>
-        <activity android:name="com.example.Z23354937.SearchActivity" />
-        <activity android:name="com.example.Z23354937.LogInActivity" />
-        <activity android:name="com.example.Z23354937.AccountActivity" />
-        <activity android:name="com.example.Z23354937.StockActivity" />
-        <activity android:name="com.example.Z23354937.MainActivity">
+        <activity android:name="com.cop4655.Z23354937.ResultActivity"></activity>
+        <activity android:name="com.cop4655.Z23354937.SearchActivity" />
+        <activity android:name="com.cop4655.Z23354937.LogInActivity" />
+        <activity android:name="com.cop4655.Z23354937.AccountActivity" />
+        <activity android:name="com.cop4655.Z23354937.StockActivity" />
+        <activity android:name="com.cop4655.Z23354937.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

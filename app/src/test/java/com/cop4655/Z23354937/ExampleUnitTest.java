@@ -1,4 +1,4 @@
-package com.example.Z23354937;
+package com.cop4655.Z23354937;
 
 import org.junit.Test;
 
