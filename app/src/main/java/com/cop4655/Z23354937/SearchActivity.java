@@ -33,11 +33,12 @@ public class SearchActivity extends AppCompatActivity {
         searchText = findViewById(R.id.searchText);
     }
 
+    //Gets the content of the search text view, gets the JSON response from the API and sends it to the Result Activity
     public void searchButton(View view){
 
         String searchTerm = searchText.getText().toString();
 
-
+        //Creates Volley Queue
         if (queue == null) {
             queue = Volley.newRequestQueue(this);
         }
@@ -66,6 +67,7 @@ public class SearchActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
+    //onCLick function to return to Main Menu
     public void returnToMainMenu(View view){
         Intent intent;
 

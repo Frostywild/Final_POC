@@ -35,12 +35,14 @@ public class AccountActivity extends AppCompatActivity {
         mail = findViewById(R.id.mail);
 
 
+        //Checks if a user is logged in
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount!=null){
             name.setText(signInAccount.getDisplayName());
             mail.setText(signInAccount.getEmail());
         }
 
+        //onClick for loging out of Firebase
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +54,7 @@ public class AccountActivity extends AppCompatActivity {
 
     }
 
+    //onClick for returning to main menu
     public void returnToMainMenu(View view){
         Intent intent;
 

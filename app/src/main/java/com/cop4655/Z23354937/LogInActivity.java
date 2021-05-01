@@ -30,12 +30,9 @@ public class LogInActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN=123;
 
-    Button verify;
+
     private FirebaseAuth mAuth;
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
 
     @Override
     protected void onStart() {
@@ -57,6 +54,7 @@ public class LogInActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        //Creats Google Sign ing object
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -74,10 +72,13 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
+    //Changes ACtivity to the sign in client when logging in
     private void signIn(){
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
     }
+
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -97,6 +98,7 @@ public class LogInActivity extends AppCompatActivity {
         }
     }
 
+    //Authenticates Firebase log in with google login
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
@@ -119,6 +121,7 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
+    //Changes Activity to main menu
     public void returnToMainMenu(View view){
         Intent intent;
 

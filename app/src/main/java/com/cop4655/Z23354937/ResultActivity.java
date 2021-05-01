@@ -66,6 +66,7 @@ public class ResultActivity extends AppCompatActivity {
         String tempSymbol=null;
         list = new ArrayList<String>();
 
+        //Adds all of the results from the search Query to the Array list that will be added to the list view
         if(searchInfo!=null){
             for(int i=0;i<searchInfo.length();i++) {
                 try {
@@ -87,6 +88,7 @@ public class ResultActivity extends AppCompatActivity {
 
         listView.setAdapter(arrayAdapter);
 
+        //Sets the on item click listener for the list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
